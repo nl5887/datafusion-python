@@ -135,7 +135,9 @@ def test_window_lead(df):
     df = df.select(
         column("a"),
         f.alias(
-            f.window("lead", [column("b")], order_by=[f.order_by(column("b"))]),
+            f.window(
+                "lead", [column("b")], order_by=[f.order_by(column("b"))]
+            ),
             "a_next",
         ),
     )
